@@ -69,6 +69,8 @@ do ($ = window.jQuery, window) ->
 
     _get_position: (element) -> element.getAttribute('data-position') or 'bottom'
 
+    _get_class: (element) -> element.getAttribute('data-class') or ''
+
     _place_tooltip: (element) ->
       tooltip_layer = $(element).data('tooltip_layer')
       tooltip_layer_position = @._get_offset(tooltip_layer)
@@ -116,7 +118,7 @@ do ($ = window.jQuery, window) ->
 
       @._position_helper_layer element
       @$el.get()[0].appendChild helper_layer
-      tooltip_layer.className = "chardinjs-tooltip chardinjs-#{@._get_position(element)}"
+      tooltip_layer.className = "chardinjs-tooltip chardinjs-#{@._get_position(element)} #{@._get_class(element)}"
       tooltip_layer.innerHTML = "<div class='chardinjs-tooltiptext'>#{element.getAttribute('data-intro')}</div>"
       helper_layer.appendChild tooltip_layer
 
