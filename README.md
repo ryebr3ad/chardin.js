@@ -36,9 +36,10 @@ Add the instructions to your elements:
 
 `data-intro`: Text to show with the instructions  
 `data-position`: (`left`, `top`, `right`, `bottom`), where to place the text with respect to the element
+`data-class`: (Optional) Add a class name to the element
 
 ```HTML
-<img src="img/chardin.png" data-intro="An awesome 18th-century painter, who found beauty in everyday, common things." data-position="right" />
+<img src="img/chardin.png" data-intro="An awesome 18th-century painter, who found beauty in everyday, common things." data-position="right" data-class="pointer"/>
 ```
 
 ## Running
@@ -92,6 +93,7 @@ Triggered when chardinJs is stopped.
  * [Maxim Syabro](https://github.com/syabro)
  * [nmeum](https://github.com/nmeum)
  * [printercu](https://github.com/printercu)
+ * [ryebr3ad](https://github.com/ryebr3ad)
 
 ## Contributions
 
