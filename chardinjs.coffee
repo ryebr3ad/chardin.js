@@ -81,23 +81,26 @@ do ($ = window.jQuery, window) ->
       tooltip_layer.style.bottom = null
       tooltip_layer.style.left = null
 
-      switch @._get_position(element)
-        when "top", "bottom"
-          target_element_position  = @._get_offset(element)
-          target_width             = target_element_position.width
-          my_width                 = $(tooltip_layer).width()
-          tooltip_layer.style.left = "#{(target_width/2)-(tooltip_layer_position.width/2)}px"
-        when "left", "right"
-          target_element_position = @._get_offset(element)
-          target_height           = target_element_position.height
-          my_height               = $(tooltip_layer).height()
-          tooltip_layer.style.top = "#{(target_height/2)-(tooltip_layer_position.height/2)}px"
+      data_class = @._get_class(element)
 
-      switch @._get_position(element)
-        when "left" then tooltip_layer.style.left = "-" + (tooltip_layer_position.width - 34) + "px"
-        when "right" then tooltip_layer.style.right = "-" + (tooltip_layer_position.width - 34) + "px"
-        when "bottom" then tooltip_layer.style.bottom = "-" + (tooltip_layer_position.height) + "px"
-        when "top" then tooltip_layer.style.top = "-" + (tooltip_layer_position.height) + "px"
+      if data_class == ''
+        switch @._get_position(element)
+          when "top", "bottom"
+            target_element_position  = @._get_offset(element)
+            target_width             = target_element_position.width
+            my_width                 = $(tooltip_layer).width()
+            tooltip_layer.style.left = "#{(target_width/2)-(tooltip_layer_position.width/2)}px"
+          when "left", "right"
+            target_element_position = @._get_offset(element)
+            target_height           = target_element_position.height
+            my_height               = $(tooltip_layer).height()
+            tooltip_layer.style.top = "#{(target_height/2)-(tooltip_layer_position.height/2)}px"
+
+        switch @._get_position(element)
+          when "left" then tooltip_layer.style.left = "-" + (tooltip_layer_position.width - 34) + "px"
+          when "right" then tooltip_layer.style.right = "-" + (tooltip_layer_position.width - 34) + "px"
+          when "bottom" then tooltip_layer.style.bottom = "-" + (tooltip_layer_position.height) + "px"
+          when "top" then tooltip_layer.style.top = "-" + (tooltip_layer_position.height) + "px"
 
     _position_helper_layer: (element) ->
       helper_layer = $(element).data('helper_layer')
